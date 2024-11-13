@@ -1,0 +1,17 @@
+GFG 
+search-an-element-in-an-array-1587115621
+
+class Solution {
+
+    static int search(int arr[], int x) {
+        // int a = arr[0];
+        // Your code here
+        for(int i = 1; i<arr.length;i++){
+            if(arr[i] == x){
+                return i;
+            }
+        }
+        return x;
+    }
+}
+

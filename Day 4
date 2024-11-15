@@ -1,0 +1,14 @@
+Searching a number 3024
+class Solution {
+    public int search(int k, ArrayList<Integer> arr) {
+        
+        // code here
+    for (int i = 0; i < arr.size(); i++) {
+            if (arr.get(i) == k) {
+                return i+1;  // Return the index if found
+            }
+        }
+        return -1;  // Return -1 if element not found
+    }    
+    
+}

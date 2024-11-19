@@ -1,0 +1,25 @@
+Checks arrays are equal or not
+approach 1)
+class Solution {
+    // Function to check if two arrays are equal or not.
+    public static boolean check(int[] arr1, int[] arr2) {
+            if (arr1.length != arr2.length) {
+            return false;
+        }
+
+        
+         Arrays.sort(arr1);
+         Arrays.sort(arr2);
+
+       
+        return Arrays.equals(arr1, arr2);
+    }
+}
+
+approach 2)
+  for(int i= 0; i<arr1.length;i++){
+            if(arr1[i] == arr2[i]){
+                return true;
+            }
+        }
+        return false;

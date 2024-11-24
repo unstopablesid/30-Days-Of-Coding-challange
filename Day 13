@@ -1,0 +1,33 @@
+kaden's algorithm
+// User function Template for Java
+class Solution {
+
+    // arr: input array
+    // Function to find the sum of contiguous subarray with maximum sum.
+    int maxSubarraySum(int[] arr) {
+
+        // Your code here
+    int n = arr.length;
+    int cs = 0;
+    int ms = Integer.MIN_VALUE;
+    
+    boolean allNegative = true;
+    
+    int maxElement = arr[0];
+
+    for (int i = 0; i < n; i++) {
+        cs = cs + arr[i];
+        ms = Math.max(ms, cs);
+        if (cs < 0) {
+            cs = 0;
+        }
+        
+        if (arr[i] >= 0) {
+            allNegative = false;
+        }
+        maxElement = Math.max(maxElement, arr[i]);
+    }
+
+    return allNegative ? maxElement : ms;
+    }
+}

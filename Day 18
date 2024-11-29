@@ -1,0 +1,36 @@
+Add Binary Strings
+
+class Solution {
+    public String addBinary(String s1, String s2) {
+        // code here
+    StringBuilder result = new StringBuilder();
+    int i = s1.length() - 1; // Pointer for s1
+    int j = s2.length() - 1; // Pointer for s2
+    int carry = 0;
+
+    // Traverse both strings from the end
+    while (i >= 0 || j >= 0 || carry > 0) {
+        int bit1 = (i >= 0) ? s1.charAt(i) - '0' : 0; // Get bit from s1 or 0
+        int bit2 = (j >= 0) ? s2.charAt(j) - '0' : 0; // Get bit from s2 or 0
+
+        // Calculate sum and carry
+        int sum = bit1 + bit2 + carry;
+        result.append(sum % 2); // Append the current bit (0 or 1)
+        carry = sum / 2; // Update carry
+
+        i--; // Move to the next bit in s1
+        j--; // Move to the next bit in s2
+    }
+
+    // Reverse the result to get the final binary string
+    String finalResult = result.reverse().toString();
+
+    // Remove leading zeros
+    int leadingZeroIndex = 0;
+    while (leadingZeroIndex < finalResult.length() - 1 && finalResult.charAt(leadingZeroIndex) == '0') {
+        leadingZeroIndex++;
+    }
+
+    return finalResult.substring(leadingZeroIndex);
+    }
+}
